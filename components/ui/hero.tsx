@@ -1,3 +1,48 @@
+"use client";
+
+import { ArrowUpRight, Layers, ShieldCheck, Zap } from "lucide-react";
+
+import { SpotlightCard } from "@/components/ui/spotlight-card";
+
+const heroHighlights = [
+  {
+    title: "Sinematik ilk izlenim",
+    description:
+      "Optimize edilmiş loop video ile güçlü ama kontrollü bir görsel giriş.",
+    stat: "4K hissi",
+    spotlightColor: "rgba(14, 165, 233, 0.18)",
+    icon: Layers,
+    iconWrapClassName:
+      "bg-sky-950/60 border-sky-400/15 text-sky-300",
+    numberClassName:
+      "border-sky-400/15 bg-sky-400/10 text-sky-200",
+  },
+  {
+    title: "Yüksek okunabilirlik",
+    description:
+      "Katmanlı overlay yapısı sayesinde başlık, açıklama ve CTA’lar net kalır.",
+    stat: "Net hiyerarşi",
+    spotlightColor: "rgba(168, 85, 247, 0.2)",
+    icon: ShieldCheck,
+    iconWrapClassName:
+      "bg-violet-950/60 border-violet-400/15 text-violet-300",
+    numberClassName:
+      "border-violet-400/15 bg-violet-400/10 text-violet-200",
+  },
+  {
+    title: "Performans odaklı",
+    description:
+      "WebM ve MP4 fallback yapısıyla kaliteyi korurken yükü düşük tutar.",
+    stat: "Hafif yük",
+    spotlightColor: "rgba(52, 211, 153, 0.18)",
+    icon: Zap,
+    iconWrapClassName:
+      "bg-emerald-950/60 border-emerald-400/15 text-emerald-300",
+    numberClassName:
+      "border-emerald-400/15 bg-emerald-400/10 text-emerald-200",
+  },
+];
+
 export function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#07080d] text-white">
@@ -31,12 +76,14 @@ export function Hero() {
         </video>
       </div>
 
-      <div className="absolute inset-0 z-[12] bg-[radial-gradient(circle_at_top,rgba(96,165,250,0.18),transparent_32%),linear-gradient(180deg,rgba(4,6,12,0.28)_0%,rgba(4,6,12,0.62)_45%,rgba(4,6,12,0.92)_100%)]" />
-      <div className="absolute inset-0 z-[13] bg-[linear-gradient(180deg,rgba(4,6,12,0.68)_0%,rgba(4,6,12,0.35)_28%,rgba(4,6,12,0.82)_100%)] md:bg-[linear-gradient(90deg,rgba(4,6,12,0.82)_0%,rgba(4,6,12,0.55)_35%,rgba(4,6,12,0.15)_100%)]" />
+      <div className="absolute inset-0 z-[11] opacity-80 [background:radial-gradient(circle_at_16%_18%,rgba(125,211,252,0.18),transparent_20%),radial-gradient(circle_at_84%_22%,rgba(192,132,252,0.18),transparent_24%),radial-gradient(circle_at_50%_100%,rgba(45,212,191,0.14),transparent_28%)]" />
+      <div className="absolute inset-0 z-[12] bg-[radial-gradient(circle_at_top,rgba(96,165,250,0.18),transparent_32%),linear-gradient(180deg,rgba(4,6,12,0.2)_0%,rgba(4,6,12,0.56)_45%,rgba(4,6,12,0.84)_100%)]" />
+      <div className="absolute inset-0 z-[13] bg-[linear-gradient(180deg,rgba(4,6,12,0.58)_0%,rgba(4,6,12,0.24)_28%,rgba(4,6,12,0.76)_100%)] md:bg-[linear-gradient(90deg,rgba(4,6,12,0.76)_0%,rgba(4,6,12,0.46)_35%,rgba(4,6,12,0.12)_100%)]" />
 
       <div className="relative z-20 mx-auto flex min-h-screen w-full max-w-7xl items-center px-5 pb-12 pt-24 sm:px-8 sm:pb-14 sm:pt-28 lg:px-12 lg:pb-20 lg:pt-24">
-        <div className="w-full max-w-3xl space-y-6 sm:space-y-8">
-          <span className="inline-flex max-w-full items-center rounded-full border border-white/15 bg-white/8 px-3 py-1.5 text-[10px] font-medium tracking-[0.22em] text-white/75 uppercase backdrop-blur-md sm:px-4 sm:text-xs">
+        <div className="w-full max-w-4xl space-y-6 sm:space-y-8">
+          <span className="hero-badge inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-1.5 text-[10px] font-medium tracking-[0.22em] text-white/75 uppercase backdrop-blur-md sm:px-4 sm:text-xs">
+            <span className="h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_16px_rgba(103,232,249,0.8)]" />
             Yeni Nesil IVR Deneyimi
           </span>
 
@@ -50,46 +97,79 @@ export function Hero() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <a
-              href="mailto:hello@example.com"
-              className="neumorphic-button inline-flex h-12 w-full items-center justify-center rounded-full border border-white/15 bg-white/12 px-6 text-sm font-medium text-white shadow-[0_0_30px_rgba(96,165,250,0.18)] backdrop-blur-md transition-all duration-300 hover:border-sky-300/35 hover:bg-white/16 sm:w-auto"
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              type="button"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-black transition-colors hover:bg-white/90"
+              onClick={() => {
+                window.location.href = "mailto:hello@example.com";
+              }}
             >
-              Demo Talep Et
-            </a>
-            <a
-              href="#overview"
-              className="inline-flex h-12 w-full items-center justify-center rounded-full border border-white/14 bg-black/12 px-6 text-sm font-medium text-white/82 backdrop-blur-sm transition-colors duration-300 hover:bg-white/10 hover:text-white sm:w-auto"
+              <span>Demo Talep Et</span>
+              <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10"
+              onClick={() => {
+                document.getElementById("overview")?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }}
             >
-              Nasıl Çalıştığını İncele
-            </a>
+              <span>Nasıl Çalıştığını İncele</span>
+              <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
+            </button>
           </div>
 
           <div
             id="overview"
             className="grid gap-3 border-t border-white/10 pt-6 text-sm text-white/70 sm:gap-4 sm:pt-8 lg:grid-cols-3"
           >
-            <div className="rounded-2xl border border-white/10 bg-white/6 p-4 backdrop-blur-md sm:p-5">
-              <p className="font-medium text-white">Sinematik ilk izlenim</p>
-              <p className="mt-2 leading-6 text-white/66">
-                Optimize edilmiş loop video ile güçlü ama kontrollü bir görsel giriş.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-white/6 p-4 backdrop-blur-md sm:p-5">
-              <p className="font-medium text-white">Yüksek okunabilirlik</p>
-              <p className="mt-2 leading-6 text-white/66">
-                Katmanlı overlay yapısı sayesinde başlık, açıklama ve CTA’lar net kalır.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-white/6 p-4 backdrop-blur-md sm:p-5">
-              <p className="font-medium text-white">Performans odaklı</p>
-              <p className="mt-2 leading-6 text-white/66">
-                WebM ve MP4 fallback yapısıyla kaliteyi korurken yükü düşük tutar.
-              </p>
-            </div>
+            {heroHighlights.map((item, index) => {
+              const Icon = item.icon;
+
+              return (
+                <SpotlightCard
+                  key={item.title}
+                  className="hero-info-card group rounded-[22px] border-white/10 bg-transparent px-4 py-3.5 backdrop-blur-lg transition-transform duration-300 hover:-translate-y-1 sm:px-4.5 sm:py-4"
+                  spotlightColor={item.spotlightColor}
+                  style={{ animationDelay: `${index * 120}ms` }}
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="space-y-3">
+                      <div
+                        className={`inline-flex h-9 w-9 items-center justify-center rounded-xl border ${item.iconWrapClassName}`}
+                      >
+                        <Icon className="h-4.5 w-4.5" aria-hidden="true" />
+                      </div>
+
+                      <div className="space-y-1.5">
+                        <span className="inline-flex rounded-full border border-white/12 bg-white/6 px-2.5 py-1 text-[10px] font-medium tracking-[0.18em] text-white/62 uppercase backdrop-blur-md">
+                          {item.stat}
+                        </span>
+                        <p className="text-[15px] font-medium text-white">{item.title}</p>
+                      </div>
+                    </div>
+
+                    <span
+                      className={`mt-0.5 inline-flex h-8.5 w-8.5 items-center justify-center rounded-xl border text-xs font-medium backdrop-blur-md transition-all duration-300 group-hover:scale-105 ${item.numberClassName}`}
+                    >
+                      0{index + 1}
+                    </span>
+                  </div>
+
+                  <p className="mt-3 max-w-[32ch] text-sm leading-5.5 text-white/66">
+                    {item.description}
+                  </p>
+                </SpotlightCard>
+              );
+            })}
           </div>
         </div>
       </div>
+
     </section>
   );
 }

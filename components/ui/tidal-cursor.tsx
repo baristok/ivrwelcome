@@ -28,7 +28,7 @@ export const Component = () => {
     };
 
     const addRipple = (x: number, y: number) => {
-      ripples.current.push({ x, y, radius: 0, alpha: 0.22 });
+      ripples.current.push({ x, y, radius: 0, alpha: 0.5 });
     };
 
     const handleMove = (event: MouseEvent) => {
@@ -43,8 +43,8 @@ export const Component = () => {
         window.matchMedia("(prefers-color-scheme: dark)").matches;
 
       ripples.current.forEach((ripple) => {
-        ripple.radius += 1.35;
-        ripple.alpha -= 0.006;
+        ripple.radius += 1.2;
+        ripple.alpha -= 0.005;
 
         if (ripple.alpha <= 0) {
           return;
@@ -53,9 +53,9 @@ export const Component = () => {
         ctx.beginPath();
         ctx.arc(ripple.x, ripple.y, ripple.radius, 0, Math.PI * 2);
         ctx.strokeStyle = isDark
-          ? `rgba(34, 211, 238, ${ripple.alpha})`
-          : `rgba(37, 99, 235, ${ripple.alpha})`;
-        ctx.lineWidth = 1.5;
+          ? `rgba(143, 175, 198, ${ripple.alpha})`
+          : `rgba(16, 37, 61, ${Math.min(ripple.alpha + 0.05, 0.55)})`;
+        ctx.lineWidth = isDark ? 1.9 : 1.7;
         ctx.stroke();
       });
 
@@ -79,7 +79,7 @@ export const Component = () => {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 -z-10 h-screen w-screen"
+      className="pointer-events-none fixed inset-0 z-[11] h-screen w-screen mix-blend-screen"
     />
   );
 };

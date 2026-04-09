@@ -33,6 +33,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 a {
@@ -49,4 +50,42 @@ select {
 
 ::selection {
   background: color-mix(in srgb, var(--foreground) 18%, transparent);
+}
+
+.hero-video {
+  filter: saturate(0.92) contrast(1.05) brightness(0.8);
+}
+
+.neumorphic-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.neumorphic-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(96, 165, 250, 0.28) 0%,
+    rgba(56, 189, 248, 0.08) 55%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.neumorphic-button:hover::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-video {
+    animation: none;
+  }
 }

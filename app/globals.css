@@ -3,6 +3,7 @@
 :root {
   --background: #fcfcfd;
   --foreground: #111827;
+  --glass-btn-text: oklch(0.94 0.01 240);
 }
 
 @theme inline {

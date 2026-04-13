@@ -2,6 +2,7 @@
 
 import { ArrowUpRight, Layers, ShieldCheck, Zap } from "lucide-react";
 
+import { GlassButton } from "@/components/ui/glass-button";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 const heroHighlights = [
@@ -98,19 +99,21 @@ export function Hero() {
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
-            <button
+            <GlassButton
               type="button"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-black transition-colors hover:bg-white/90"
+              variant="accent"
+              className="min-w-[12.75rem] justify-center text-white"
               onClick={() => {
                 window.location.href = "mailto:hello@example.com";
               }}
             >
               <span>Demo Talep Et</span>
               <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
-            </button>
-            <button
+            </GlassButton>
+            <GlassButton
               type="button"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10"
+              variant="default"
+              className="min-w-[15rem] justify-center text-white/96"
               onClick={() => {
                 document.getElementById("overview")?.scrollIntoView({
                   behavior: "smooth",
@@ -120,7 +123,7 @@ export function Hero() {
             >
               <span>Nasıl Çalıştığını İncele</span>
               <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
-            </button>
+            </GlassButton>
           </div>
 
           <div

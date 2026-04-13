@@ -102,7 +102,7 @@ export function Hero() {
             <GlassButton
               type="button"
               variant="accent"
-              className="min-w-[12.75rem] justify-center text-white"
+              className="min-w-[12.75rem] justify-center text-white shadow-[0_0_30px_rgba(34,211,238,0.18)]"
               onClick={() => {
                 window.location.href = "mailto:hello@example.com";
               }}
@@ -113,7 +113,7 @@ export function Hero() {
             <GlassButton
               type="button"
               variant="default"
-              className="min-w-[15rem] justify-center text-white/96"
+              className="min-w-[15rem] justify-center text-white shadow-[0_0_28px_rgba(129,140,248,0.14)]"
               onClick={() => {
                 document.getElementById("overview")?.scrollIntoView({
                   behavior: "smooth",
